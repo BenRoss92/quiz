@@ -35,4 +35,20 @@ describe QuestionList do
     )
   end
 
+  it "selects the next question" do
+    question_list.select_question(1)
+    question_list.next_question
+    expect(question_list.current_question).to include(
+    time_limit: 12,
+    text: "Name the largest freshwater lake in the world?",
+    correct_answer: "Lake Superior",
+    answer2: "Lake Victoria",
+    answer3: "Lake Huron"
+    )
+  end
+
+  # it "displays text of selected question" do
+  #   expect(question_list.display_text(question)).to eq("Who was the legendary Benedictine monk who invented champagne?")
+  # end
+
 end
