@@ -1,19 +1,20 @@
 class QuestionList
 
-  attr_reader :questions, :current_question
+  attr_reader :questions, :current_question, :current_number
 
   def initialize(questions)
     @questions = questions
     @current_question = nil
+    @current_number = nil
   end
 
-  def select_question(n)
-    @current_question = questions[n - 1]
+  def select_question(current_number)
+    @current_number = current_number
+    @current_question = questions[(current_number - 1)]
   end
 
   def next_question
-    n = questions.find_index(current_question)
-    select_question(n+2)
+    select_question(current_number + 1)
   end
 
 end
