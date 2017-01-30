@@ -8,13 +8,12 @@ class QuestionList
   end
 
   def select_question(n)
-    n -= 1
-    @current_question = questions[n]
+    @current_question = questions[n - 1]
   end
 
   def next_question
-    n = questions.find_index(@current_question)
-    select_question(n)
+    n = questions.find_index(current_question)
+    select_question(n+2)
   end
 
 end

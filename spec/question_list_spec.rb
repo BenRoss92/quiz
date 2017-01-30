@@ -47,8 +47,4 @@ describe QuestionList do
     )
   end
 
-  # it "displays text of selected question" do
-  #   expect(question_list.display_text(question)).to eq("Who was the legendary Benedictine monk who invented champagne?")
-  # end
-
 end
