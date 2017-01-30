@@ -4,8 +4,8 @@ class QuestionList
 
   def initialize(questions)
     @questions = questions
-    @current_question = nil
-    @current_number = nil
+    @current_question = questions.first
+    @current_number = 1
   end
 
   def select_question(current_number)
