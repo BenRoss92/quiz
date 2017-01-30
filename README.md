@@ -41,20 +41,3 @@ so I can enjoy a heightened sense of tension.
 As a quiz master,  
 I want to ensure the player can't find the answer by inspecting the page  
 so that tech-savvy players can't cheat.
-
-## Instructions
-
-Assume the questions and answers file has been 'provided' already and is stored locally (create this yourself in a format of your choice).
-
-## Notes
-
-Submission and verification of answers should be done with JavaScript to avoid unnecessary page loads.
-
-Read the bonus section below. You do not need to support this in your solution, but it's worth bearing in mind when you consider your design.
-
-## Bonus section
-
-How would you support different types of question? For example, some questions might:
-
-- have more than one possible answer e.g. Name a US state capital
-- require multiple answers - e.g. Name two of the six members of Monty Python.
