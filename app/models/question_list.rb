@@ -1,3 +1,5 @@
+# Understands iterating over a list of questions
+
 require './app/models/question'
 
 class QuestionList

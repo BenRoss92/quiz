@@ -17,4 +17,12 @@ describe Question do
     expect(question.question_data).to eq(question_data)
   end
 
+  it "prints question text" do
+    expect(question.text).to eq(
+    "Who was the legendary Benedictine monk who invented champagne?"
+    )
+  end
+
+
+
 end
