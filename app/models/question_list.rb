@@ -17,8 +17,7 @@ class QuestionList
 
   def select_question(current_number)
     @current_number = current_number
-    @current_question = questions[(current_number - 1)]
-    @question_class.new(current_question)
+    @current_question = @question_class.new(questions[(current_number - 1)])
   end
 
   def next_question
