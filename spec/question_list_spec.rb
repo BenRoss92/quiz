@@ -2,10 +2,17 @@ require './app/models/question_list'
 
 describe QuestionList do
 
-  subject(:question_list) { described_class.new(questions) }
-
-  let(:question1) { questions[0] }
-  let(:question2) { questions[1] }
+  let(:question) { double(:question, question_data: current_question) }
+  let(:current_question) do {
+    time_limit: 10,
+    text: "Who was the legendary Benedictine monk who invented champagne?",
+    correct_answer: "Dom Perignon",
+    answer2: "Ansgar",
+    answer3: "Willibrord"
+    }
+  end
+  let(:question_class) { double(:question_class, new: question) }
+  subject(:question_list) { described_class.new(questions, question_class) }
 
   let(:questions) do
     [{
@@ -24,21 +31,34 @@ describe QuestionList do
       }]
   end
 
-  it "has a list of questions and their data" do
+  let(:question1) { questions[0] }
+  let(:question2) { questions[1] }
+
+  it "has a list of question data" do
     expect(question_list.questions).to eq(questions)
   end
 
-  it "selects a question" do
-    expect(question_list.select_question(1)).to eq(question1)
+  describe '#select_question' do
+    it "selects a question" do
+      question_list.select_question(1)
+      expect(question_list.current_question).to eq(question1)
+    end
+
+    it "creates a question" do
+      expect(question_class).to receive(:new).with(question_data: current_question)
+      question_list.select_question(1)
+    end
   end
 
-  it "selects the next question" do
-    question_list.select_question(1)
-    question_list.next_question
-    expect(question_list.current_question).to eq(question2)
+  describe '#next_question' do
+    it "selects the next question" do
+      question_list.select_question(1)
+      question_list.next_question
+      expect(question_list.current_question).to eq(question2)
+    end
   end
 
-  it "selects first question in list by default" do
+  it "selects the first question by default" do
     expect(question_list.current_question).to eq(question1)
   end
 
