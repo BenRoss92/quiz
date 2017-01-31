@@ -7,8 +7,8 @@ describe QuestionList do
     time_limit: 10,
     text: "Who was the legendary Benedictine monk who invented champagne?",
     correct_answer: "Dom Perignon",
-    answer2: "Ansgar",
-    answer3: "Willibrord"
+    option_2: "Ansgar",
+    option_3: "Willibrord"
     }
   end
   let(:question_class) { double(:question_class, new: question) }
@@ -19,15 +19,15 @@ describe QuestionList do
       time_limit: 10,
       text: "Who was the legendary Benedictine monk who invented champagne?",
       correct_answer: "Dom Perignon",
-      answer2: "Ansgar",
-      answer3: "Willibrord"
+      option_2: "Ansgar",
+      option_3: "Willibrord"
       },
       {
         time_limit: 12,
         text: "Name the largest freshwater lake in the world?",
         correct_answer: "Lake Superior",
-        answer2: "Lake Victoria",
-        answer3: "Lake Huron"
+        option_2: "Lake Victoria",
+        option_3: "Lake Huron"
       }]
   end
 
