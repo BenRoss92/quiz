@@ -8,8 +8,8 @@ class Question
     @text           = question_data[:text]
     @time_limit     = question_data[:time_limit]
     @correct_answer = question_data[:correct_answer]
-    @option_2        = question_data[:option_2]
-    @option_3        = question_data[:option_3]
+    @option_2       = question_data[:option_2]
+    @option_3       = question_data[:option_3]
   end
 
 end
