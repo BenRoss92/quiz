@@ -38,36 +38,49 @@ describe QuestionList do
     expect(question_list.questions).to eq(questions)
   end
 
-  describe '#select_question' do
-    xit "selects a question" do
-      question_list.select_question(1)
-      expect(question_list.current_question).to eq(question1)
-    end
-
-    it "creates a question" do
-      expect(question_class).to receive(:new).with(current_question)
-      question_list.select_question(1)
-    end
-  end
-
-  describe '#next_question' do
-    xit "selects the next question" do
-      question_list.select_question(1)
-      question_list.next_question
-      expect(question_list.current_question).to eq(question2)
-    end
-  end
-
   it "selects the first question by default" do
     expect(question_list.current_question).to eq(question1)
   end
 
-  describe '#print_question' do
-    it "prints the current question" do
+  describe '#select_question' do
+    it "creates a question" do
+      expect(question_class).to receive(:new).with(current_question)
       question_list.select_question(1)
-      expect(question_list.print_question).to eq(
-      "Who was the legendary Benedictine monk who invented champagne?"
-      )
+    end
+
+    xit "selects a question" do
+      question_list.select_question(1)
+      expect(question_list.current_question).to eq(question1)
+    end
+  end
+
+  describe '#print_options' do
+    it "prints options for current question" do
+      shuffled_options = ["Dom Perignon", "Ansgar", "Willibrord"]
+      allow(question).to receive(:shuffle_options) { shuffled_options }
+      question_list.select_question(1)
+      expect(question_list.print_options).to eq(shuffled_options)
+    end
+  end
+
+  context 'after selecting a question' do
+    before(:each) do
+      question_list.select_question(1)
+    end
+
+    describe '#next_question' do
+      xit "selects the next question" do
+        question_list.next_question
+        expect(question_list.current_question).to eq(question2)
+      end
+    end
+
+    describe '#print_question' do
+      it "prints the current question" do
+        expect(question_list.print_question).to eq(
+        "Who was the legendary Benedictine monk who invented champagne?"
+        )
+      end
     end
   end
 

@@ -28,6 +28,10 @@ class QuestionList
     current_question.text
   end
 
+  def print_options
+    current_question.shuffle_options
+  end
+
   private
 
   attr_reader :question_class
