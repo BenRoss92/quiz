@@ -39,7 +39,7 @@ describe QuestionList do
   end
 
   describe '#select_question' do
-    it "selects a question" do
+    xit "selects a question" do
       question_list.select_question(1)
       expect(question_list.current_question).to eq(question1)
     end
@@ -51,7 +51,7 @@ describe QuestionList do
   end
 
   describe '#next_question' do
-    it "selects the next question" do
+    xit "selects the next question" do
       question_list.select_question(1)
       question_list.next_question
       expect(question_list.current_question).to eq(question2)
@@ -60,6 +60,15 @@ describe QuestionList do
 
   it "selects the first question by default" do
     expect(question_list.current_question).to eq(question1)
+  end
+
+  describe '#print_question' do
+    it "prints the current question" do
+      question_list.select_question(1)
+      expect(question_list.print_question).to eq(
+      "Who was the legendary Benedictine monk who invented champagne?"
+      )
+    end
   end
 
 end

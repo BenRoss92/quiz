@@ -24,6 +24,10 @@ class QuestionList
     select_question(current_number + 1)
   end
 
+  def print_question
+    current_question.text
+  end
+
   private
 
   attr_reader :question_class
