@@ -35,4 +35,12 @@ describe Question do
     expect(question.option_3).to eq("Willibrord")
   end
 
+  describe '#shuffle_options' do
+    it "shuffles the answer options" do
+      shuffled_options = ["Dom Perignon", "Ansgar", "Willibrord"]
+      allow_any_instance_of(Array).to receive(:shuffle).and_return(shuffled_options)
+      expect(question.shuffle_options).to eq(shuffled_options)
+    end
+  end
+
 end

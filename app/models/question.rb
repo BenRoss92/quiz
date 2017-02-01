@@ -12,4 +12,8 @@ class Question
     @option_3       = question_data[:option_3]
   end
 
+  def shuffle_options
+    [correct_answer, option_2, option_3].shuffle
+  end
+
 end
