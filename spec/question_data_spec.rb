@@ -26,10 +26,4 @@ describe QuestionData do
     ])
   end
 
-  xit "creates a new question list" do
-    allow(question_list).to receive(:new)
-    question_data.set_questions
-    expect(question_list).to receive(:new).with(questions)
-  end
-
 end

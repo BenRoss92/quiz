@@ -1,6 +1,7 @@
 # Understands iterating over a list of questions
 
-require './app/models/question'
+require_relative 'question'
+require_relative 'question_data'
 
 class QuestionList
 
@@ -8,7 +9,8 @@ class QuestionList
 
   START_NO = 1
 
-  def initialize(questions, question_class = Question, start_no = START_NO )
+  def initialize(questions = QuestionData.new.questions, question_class = Question,
+    start_no = START_NO )
     @questions = questions
     @question_class = question_class
     @current_question = questions[start_no - 1]

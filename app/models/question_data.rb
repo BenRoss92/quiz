@@ -1,5 +1,3 @@
-require './app/models/question_list'
-
 class QuestionData
 
   attr_reader :questions
@@ -21,10 +19,6 @@ class QuestionData
         option_3: "Lake Huron"
       }
     ]
-  end
-
-  def set_questions
-
   end
 
 end
