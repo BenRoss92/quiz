@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <p><%= @number %>. <%= @question %></p>
+    <ul id="options">
+      <% @options.each do |option| %>
+      <li> <%= option %> </li>
+      <% end %>
+    </ul>
+  </body>
+</html>
