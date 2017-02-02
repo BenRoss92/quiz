@@ -15,9 +15,13 @@ class QuestionList
     @current_number = nil
   end
 
+  def questions
+    question_data.questions
+  end
+
   def select_question(current_number)
     @current_number = current_number
-    @current_question = @question_class.new(question_data.questions[(current_number - 1)])
+    @current_question = @question_class.new(questions[(current_number - 1)])
   end
 
   def next_question

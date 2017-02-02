@@ -36,11 +36,11 @@ describe QuestionList do
   let(:question2) { questions[1] }
 
   it "has a list of question data" do
-    expect(question_list.questions).to eq(question_info)
+    expect(question_list.questions).to eq(questions)
   end
 
-  it "selects the first question by default" do
-    expect(question_list.current_question).to eq(question1)
+  it "has no current question by default" do
+    expect(question_list.current_question).to be(nil)
   end
 
   describe '#select_question' do
