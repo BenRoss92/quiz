@@ -5,21 +5,19 @@ require_relative 'question_data'
 
 class QuestionList
 
-  attr_reader :questions, :current_question, :current_number
+  attr_reader :question_data, :current_question, :current_number
 
-  START_NO = 1
-
-  def initialize(questions = QuestionData.new.questions,
-    question_class = Question, start_no = START_NO )
-    @questions = questions
+  def initialize(question_data = QuestionData.new,
+    question_class = Question)
+    @question_data = question_data
     @question_class = question_class
-    @current_question = questions[start_no - 1]
-    @current_number = start_no
+    @current_question = nil
+    @current_number = nil
   end
 
   def select_question(current_number)
     @current_number = current_number
-    @current_question = @question_class.new(questions[(current_number - 1)])
+    @current_question = @question_class.new(question_data.questions[(current_number - 1)])
   end
 
   def next_question

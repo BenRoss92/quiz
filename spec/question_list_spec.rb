@@ -12,7 +12,8 @@ describe QuestionList do
     }
   end
   let(:question_class) { double(:question_class, new: question) }
-  subject(:question_list) { described_class.new(questions, question_class) }
+  subject(:question_list) { described_class.new(question_data, question_class) }
+  let(:question_data) { instance_double("question_data", questions: questions)}
 
   let(:questions) do
     [{
@@ -35,7 +36,7 @@ describe QuestionList do
   let(:question2) { questions[1] }
 
   it "has a list of question data" do
-    expect(question_list.questions).to eq(questions)
+    expect(question_list.questions).to eq(question_info)
   end
 
   it "selects the first question by default" do
