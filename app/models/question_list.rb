@@ -20,6 +20,7 @@ class QuestionList
   end
 
   def select_question(current_number)
+    fail 'Question does not exist' if current_number > questions.length
     @current_number = current_number
     @current_question = @question_class.new(questions[(current_number - 1)])
   end

@@ -53,6 +53,12 @@ describe QuestionList do
       question_list.select_question(1)
       expect(question_list.current_question).to eq(question_2)
     end
+
+    it "doesn't allow selecting question not on list" do
+      expect { question_list.select_question(3) }.to raise_error(
+      "Question does not exist")
+    end
+
   end
 
   describe '#print_options' do
