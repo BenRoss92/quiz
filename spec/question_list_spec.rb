@@ -2,8 +2,8 @@ require './app/models/question_list'
 
 describe QuestionList do
 
-  let(:question) { double(:question, current_question) }
-  let(:current_question) do {
+  let(:question) { double(:question, question_info) }
+  let(:question_info) do {
     time_limit: 10,
     text: "Who was the legendary Benedictine monk who invented champagne?",
     correct_answer: "Dom Perignon",
@@ -44,7 +44,7 @@ describe QuestionList do
 
   describe '#select_question' do
     it "creates a question" do
-      expect(question_class).to receive(:new).with(current_question)
+      expect(question_class).to receive(:new).with(question_info)
       question_list.select_question(1)
     end
 

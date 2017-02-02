@@ -9,8 +9,8 @@ class QuestionList
 
   START_NO = 1
 
-  def initialize(questions = QuestionData.new.questions, question_class = Question,
-    start_no = START_NO )
+  def initialize(questions = QuestionData.new.questions,
+    question_class = Question, start_no = START_NO )
     @questions = questions
     @question_class = question_class
     @current_question = questions[start_no - 1]
