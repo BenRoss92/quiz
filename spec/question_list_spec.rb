@@ -32,8 +32,8 @@ describe QuestionList do
       }]
   end
 
-  let(:question1) { questions[0] }
-  let(:question2) { questions[1] }
+  let(:question_1) { questions[0] }
+  let(:question_2) { questions[1] }
 
   it "has a list of question data" do
     expect(question_list.questions).to eq(questions)
@@ -49,9 +49,9 @@ describe QuestionList do
       question_list.select_question(1)
     end
 
-    xit "selects a question" do
+    xit "selects corresponding question number from list" do
       question_list.select_question(1)
-      expect(question_list.current_question).to eq(question1)
+      expect(question_list.current_question).to eq(question_2)
     end
   end
 
@@ -72,7 +72,7 @@ describe QuestionList do
     describe '#next_question' do
       xit "selects the next question" do
         question_list.next_question
-        expect(question_list.current_question).to eq(question2)
+        expect(question_list.current_question).to eq(question_2)
       end
     end
 
