@@ -45,20 +45,14 @@ describe QuestionList do
 
   describe '#select_question' do
     it "creates a question" do
-      expect(question_class).to receive(:new).with(question_info)
+      expect(question_class).to receive(:new).with(question_1)
       question_list.select_question(1)
-    end
-
-    xit "selects corresponding question number from list" do
-      question_list.select_question(1)
-      expect(question_list.current_question).to eq(question_2)
     end
 
     it "doesn't allow selecting question not on list" do
       expect { question_list.select_question(3) }.to raise_error(
       "Question does not exist")
     end
-
   end
 
   describe '#print_options' do
@@ -76,9 +70,9 @@ describe QuestionList do
     end
 
     describe '#next_question' do
-      xit "selects the next question" do
+      it "selects the next question" do
+        expect(question_class).to receive(:new).with(question_2)
         question_list.next_question
-        expect(question_list.current_question).to eq(question_2)
       end
     end
 

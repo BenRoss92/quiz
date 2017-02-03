@@ -1,3 +1,5 @@
+# Understands a list of question data
+
 class QuestionData
 
   attr_reader :questions
