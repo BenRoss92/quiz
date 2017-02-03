@@ -2,8 +2,10 @@
 
 require_relative 'question'
 require_relative 'question_data'
+require './app/lib/exceptions'
 
 class QuestionList
+  include Exceptions
 
   attr_reader :question_data, :current_question, :current_number
 
@@ -19,7 +21,7 @@ class QuestionList
   end
 
   def select_question(current_number)
-    fail 'Question does not exist' if current_number > questions.length
+    fail NoQuestionError, "There is no question #{current_number}" if current_number > questions.length
     @current_number = current_number
     @current_question = @question_class.new(questions[(current_number - 1)])
   end

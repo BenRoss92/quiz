@@ -51,7 +51,7 @@ describe QuestionList do
 
     it "doesn't allow selecting question not on list" do
       expect { question_list.select_question(3) }.to raise_error(
-      "Question does not exist")
+      Exceptions::NoQuestionError, "There is no question 3")
     end
   end
 
