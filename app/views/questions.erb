@@ -6,10 +6,10 @@
   </head>
   <body>
     <p><%= @number %>. <%= @question %></p>
-    <ul id="options">
+    <form id="options">
       <% @options.each do |option| %>
-      <li> <%= option %> </li>
+        <input type="submit" name="answer" value="<%= option %>">
       <% end %>
-    </ul>
+    </form>
   </body>
 </html>
