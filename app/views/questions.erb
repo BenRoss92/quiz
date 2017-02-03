@@ -5,9 +5,9 @@
     <title></title>
   </head>
   <body>
-    <p><%= @number %>. <%= @question %></p>
+    <p><%= @question_list.current_number %>. <%= @question_list.print_question %></p>
     <form id="options">
-      <% @options.each do |option| %>
+      <% @question_list.print_options.each do |option| %>
         <input type="submit" name="answer" value="<%= option %>">
       <% end %>
     </form>
