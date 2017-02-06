@@ -7,7 +7,7 @@ require './app/lib/exceptions'
 class QuestionList
   include Exceptions
 
-  attr_reader :question_data, :current_question, :current_number
+  attr_reader :current_question, :current_number
 
   def initialize(question_data = QuestionData.new, question_class = Question)
     @question_data = question_data
@@ -40,6 +40,6 @@ class QuestionList
 
   private
 
-  attr_reader :question_class
+  attr_reader :question_class, :question_data
 
 end

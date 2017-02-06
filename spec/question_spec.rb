@@ -23,23 +23,23 @@ describe Question do
     expect(question.time_limit).to eq(10)
   end
 
-  it "knows the correct answer" do
-    expect(question.correct_answer).to eq("Dom Perignon")
-  end
-
-  it "knows a second option" do
-    expect(question.option_2).to eq("Ansgar")
-  end
-
-  it "knows a third option" do
-    expect(question.option_3).to eq("Willibrord")
-  end
-
   describe '#shuffle_options' do
     it "shuffles the answer options" do
       shuffled_options = ["Dom Perignon", "Ansgar", "Willibrord"]
       allow_any_instance_of(Array).to receive(:shuffle).and_return(shuffled_options)
       expect(question.shuffle_options).to eq(shuffled_options)
+    end
+  end
+
+  describe '#result' do
+    it "finds out if answer is incorrect" do
+      answer = "Ansgar"
+      expect(question.get_result(answer)).to be :incorrect
+    end
+
+    it "finds out if answer is correct" do
+      answer = "Dom Perignon"
+      expect(question.get_result(answer)).to be :correct
     end
   end
 

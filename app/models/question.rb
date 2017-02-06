@@ -2,7 +2,7 @@
 
 class Question
 
-  attr_reader :text, :time_limit, :correct_answer, :option_2, :option_3
+  attr_reader :text, :time_limit
 
   def initialize(question_info)
     @text           = question_info[:text]
@@ -15,5 +15,13 @@ class Question
   def shuffle_options
     [correct_answer, option_2, option_3].shuffle
   end
+
+  def get_result(answer)
+    answer == correct_answer ? :correct : :incorrect
+  end
+
+  private
+
+  attr_reader :correct_answer, :option_2, :option_3
 
 end
