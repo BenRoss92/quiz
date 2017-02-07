@@ -5,11 +5,18 @@
     <title></title>
   </head>
   <body>
-    <p><%= @question_list.current_number %>. <%= @question_list.print_question %></p>
-    <form id="options">
+    <p>
+      <%= @question_list.current_number %>. <%= @question_list.print_question %>
+    </p>
+    <div id="options">
       <% @question_list.print_options.each do |option| %>
-        <input type="submit" name="answer" value="<%= option %>">
+        <input type="button" class="answer" value="<%= option %>">
       <% end %>
-    </form>
+    </div>
+    <div id="result"></div>
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+    </script>
+    <script src="/interface.js"></script>
   </body>
 </html>
