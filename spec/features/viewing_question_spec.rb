@@ -1,6 +1,8 @@
 feature 'viewing a question' do
   scenario 'a user sees only one question at a time' do
-    visit("/questions/1")
+    visit('/')
+    click_link('Start')
+    expect(page).to have_current_path('/questions/1')
     expect(page).to have_content(
     "1. Who was the legendary Benedictine monk who invented champagne?"
     )

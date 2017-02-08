@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Questions</title>
+    <title>Welcome Page</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet"
     href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -21,15 +21,9 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="text-center">
-            <h3>
-              <%= @question_list.current_number %>. <%= @question_list.print_question %>
-            </h3>
-            <div id="options">
-              <% @question_list.print_options.each do |option| %>
-                <input type="button" class="answer" value="<%= option %>">
-              <% end %>
-            </div>
-            <div id="result"></div>
+            <h1>Ben's Quiz</h1>
+            <p class="lead">Welcome to the Quiz</p>
+            <a class="lead" href="/questions/1">Start</a>
           </div>
         </div>
       </div>
@@ -40,7 +34,6 @@
     <script
       src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
     </script>
-    <script src="/interface.js"></script>
   <!-- Latest compiled and minified JavaScript -->
   <script
   src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"

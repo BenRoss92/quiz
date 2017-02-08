@@ -7,6 +7,10 @@ class QuizApp < Sinatra::Base
   enable :sessions
   disable :show_exceptions
 
+  get '/' do
+    erb :'welcome'
+  end
+
   get '/questions/:number' do
     @question_list = QuestionList.new
     session[:number] = params[:number].to_i
