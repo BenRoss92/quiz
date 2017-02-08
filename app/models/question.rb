@@ -17,7 +17,11 @@ class Question
   end
 
   def get_result(answer)
-    answer == correct_answer ? :correct : :incorrect
+    answer == correct_answer ? { verdict: :correct } : reveal_answer
+  end
+
+  def reveal_answer
+    { verdict: :incorrect, correct: correct_answer }
   end
 
   private

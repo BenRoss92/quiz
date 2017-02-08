@@ -12,6 +12,9 @@ describe Question do
     option_3: "Willibrord"
     }
   end
+  let(:valid_answer) { "Dom Perignon" }
+  let(:invalid_answer) { "Ansgar" }
+  let(:shuffled_options) { ["Dom Perignon", "Ansgar", "Willibrord"] }
 
   it "knows its text" do
     expect(question.text).to eq(
@@ -25,21 +28,23 @@ describe Question do
 
   describe '#shuffle_options' do
     it "shuffles the answer options" do
-      shuffled_options = ["Dom Perignon", "Ansgar", "Willibrord"]
       allow_any_instance_of(Array).to receive(:shuffle).and_return(shuffled_options)
       expect(question.shuffle_options).to eq(shuffled_options)
     end
   end
 
-  describe '#result' do
-    it "finds out if answer is incorrect" do
-      answer = "Ansgar"
-      expect(question.get_result(answer)).to be :incorrect
+  describe '#get_result' do
+    context 'when answer is incorect' do
+      it "returns the incorrect verdict and the correct answer" do
+        expect(question.get_result(invalid_answer)).to include(
+        verdict: :incorrect, correct: valid_answer)
+      end
     end
 
-    it "finds out if answer is correct" do
-      answer = "Dom Perignon"
-      expect(question.get_result(answer)).to be :correct
+    context 'when answer is correct' do
+      it "shows the verdict to be correct" do
+        expect(question.get_result(valid_answer)).to include(verdict: :correct)
+      end
     end
   end
 
