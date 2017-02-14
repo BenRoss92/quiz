@@ -11,7 +11,6 @@ $(document).ready(function() {
       url: "/questions",
       data: { answer: answer },
       success: function(response) {
-        console.log(response);
         getVerdict(response);
         getCorrection(response);
       },

@@ -16,6 +16,10 @@ class QuestionList
     @current_number = nil
   end
 
+  def self.instance
+    @question_list ||= QuestionList.new
+  end
+
   def questions
     question_data.questions
   end
