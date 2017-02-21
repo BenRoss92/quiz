@@ -1,9 +1,11 @@
-$(document).ready(function() {
-
   $('#skip').prop("disabled", true);
 
-  var skipQuestion = function() {
+  var allowSkipping = function() {
     $('#skip').prop("disabled", false);
+  };
+
+  var stopAnswering = function() {
+    $('#submission').prop("disabled", true);
   };
 
   $( "#options" ).submit(function( event ) {
@@ -17,7 +19,7 @@ $(document).ready(function() {
   };
 
   var sendAnswer = function(answer) {
-    $('#submission').prop("disabled", true);
+    stopAnswering();
     $.ajax({
       type: "POST",
       url: "/questions",
@@ -25,8 +27,7 @@ $(document).ready(function() {
       success: function(response) {
         getVerdict(response);
         getCorrection(response);
-        skipQuestion();
-        stopTimer();
+        endQuestion();
       },
       error: function() {
         console.log('failure');
@@ -44,4 +45,8 @@ $(document).ready(function() {
     $("#verdict").text(verdict);
   };
 
-});
+  var endQuestion = function() {
+    stopAnswering();
+    stopTimer();
+    allowSkipping();
+  };

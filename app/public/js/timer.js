@@ -12,5 +12,7 @@ var decrease = function() {
   if (limit > 0) {
     limit -= 1
     document.getElementById('timer').innerHTML = limit
+  } else {
+    endQuestion();
   }
 };
