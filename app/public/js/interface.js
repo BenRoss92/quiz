@@ -1,7 +1,8 @@
 $(document).ready(function() {
 
-  $(".answer").click(function() {
-    var answer = $(this).val();
+  $( "#options" ).submit(function( event ) {
+    event.preventDefault();
+    var answer = $( "input[type=radio]:checked" ).val();
     sendAnswer(answer);
   });
 

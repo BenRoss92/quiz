@@ -22,7 +22,7 @@
       <h3 id="question-title">
         <%= @question_list.current_number %>. <%= @question_list.print_question %>
       </h3>
-      <form action="index.html" method="post">
+      <form id="options">
         <fieldset class="form-group">
           <legend>Please submit one option:</legend>
           <% @question_list.print_options.each do |option| %>
