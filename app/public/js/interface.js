@@ -17,6 +17,7 @@ $(document).ready(function() {
   };
 
   var sendAnswer = function(answer) {
+    $('#submission').prop("disabled", true);
     $.ajax({
       type: "POST",
       url: "/questions",
