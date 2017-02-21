@@ -26,6 +26,7 @@ $(document).ready(function() {
         getVerdict(response);
         getCorrection(response);
         skipQuestion();
+        stopTimer();
       },
       error: function() {
         console.log('failure');
