@@ -1,5 +1,11 @@
 $(document).ready(function() {
 
+  $('#skip').prop("disabled", true);
+
+  var skipQuestion = function() {
+    $('#skip').prop("disabled", false);
+  };
+
   $( "#options" ).submit(function( event ) {
     event.preventDefault();
     var answer = $( "input[type=radio]:checked" ).val();
@@ -18,6 +24,7 @@ $(document).ready(function() {
       success: function(response) {
         getVerdict(response);
         getCorrection(response);
+        skipQuestion();
       },
       error: function() {
         console.log('failure');
