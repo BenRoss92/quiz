@@ -3,8 +3,12 @@ $(document).ready(function() {
   $( "#options" ).submit(function( event ) {
     event.preventDefault();
     var answer = $( "input[type=radio]:checked" ).val();
-    sendAnswer(answer);
+    checkAnswer(answer);
   });
+
+  var checkAnswer = function(answer) {
+    answer !== undefined ? sendAnswer() : alert("Please select an option");
+  };
 
   var sendAnswer = function(answer) {
     $.ajax({
