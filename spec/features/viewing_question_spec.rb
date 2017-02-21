@@ -6,8 +6,8 @@ feature 'viewing a question' do
     expect(page).to have_content(
     "1. Who was the legendary Benedictine monk who invented champagne?"
     )
-    expect(page).to have_button("Dom Perignon")
-    expect(page).to have_button("Ansgar")
-    expect(page).to have_button("Willibrord")
+    expect(page).to have_unchecked_field("Dom Perignon")
+    expect(page).to have_unchecked_field("Ansgar")
+    expect(page).to have_unchecked_field("Willibrord")
   end
 end

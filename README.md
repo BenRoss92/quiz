@@ -40,16 +40,16 @@ so I have time to recover from my grief or elation at the previous question.
 ### To Do
 
 As a quiz master,  
+I want to prevent the player from submitting an empty answer  
+to encourage guessing.
+
+As a quiz master,  
 I want to provide a list of questions and answers in some sort of file format  
 so I can prepare these offline.
 
 As a quiz master,  
 I want the ability to assign a different time limit to each question
 so the player is kept on their toes.
-
-As a quiz master,  
-I want to prevent the player from submitting an empty answer  
-to encourage guessing.
 
 As a player,  
 I want to see a timer displayed with each question  
