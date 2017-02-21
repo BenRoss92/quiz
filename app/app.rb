@@ -18,6 +18,8 @@ class QuizApp < Sinatra::Base
   get '/questions/:number' do
     session[:number] = params[:number].to_i
     @question_list.select_question(session[:number])
+    question = @question_list.current_question
+    @time_limit = question.time_limit
     erb :'questions'
   end
 

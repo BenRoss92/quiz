@@ -37,8 +37,6 @@ As a player,
 I want to trigger the next question manually  
 so I have time to recover from my grief or elation at the previous question.
 
-### To Do
-
 As a quiz master,  
 I want to prevent the player from submitting an empty answer  
 to encourage guessing.
@@ -50,6 +48,8 @@ so the player is kept on their toes.
 As a player,  
 I want to see a timer displayed with each question  
 so I can enjoy a heightened sense of tension.
+
+### To Do
 
 As a quiz master,  
 I want to prevent the player from moving to the next question until they have   submitted an answer or the time has run out  
