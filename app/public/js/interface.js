@@ -1,25 +1,25 @@
   $('#skip').prop("disabled", true);
 
-  var allowSkipping = function() {
+  var enableSkipping = function() {
     $('#skip').prop("disabled", false);
   };
 
-  var stopAnswering = function() {
+  var disableAnswering = function() {
     $('#submission').prop("disabled", true);
   };
 
   $( "#options" ).submit(function( event ) {
     event.preventDefault();
     var answer = $( "input[type=radio]:checked" ).val();
-    checkAnswer(answer);
+    validateFormat(answer);
   });
 
-  var checkAnswer = function(answer) {
-    answer !== undefined ? sendAnswer() : alert("Please select an option");
+  var validateFormat = function(answer) {
+    answer !== undefined ? validateAnswer(answer) : alert("Please select an option");
   };
 
-  var sendAnswer = function(answer) {
-    stopAnswering();
+  var validateAnswer = function(answer) {
+    disableAnswering();
     $.ajax({
       type: "POST",
       url: "/questions",
@@ -29,8 +29,8 @@
         getCorrection(response);
         endQuestion();
       },
-      error: function() {
-        console.log('failure');
+      error: function(jqXHR, errorType, exceptionObject) {
+        throw(errorType);
       }
     });
   };
@@ -46,7 +46,7 @@
   };
 
   var endQuestion = function() {
-    stopAnswering();
+    disableAnswering();
     stopTimer();
-    allowSkipping();
+    enableSkipping();
   };
