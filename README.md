@@ -49,11 +49,11 @@ As a player,
 I want to see a timer displayed with each question  
 so I can enjoy a heightened sense of tension.
 
-### To Do
-
 As a quiz master,  
 I want to prevent the player from moving to the next question until they have   submitted an answer or the time has run out  
 to encourage the player not to give up.
+
+### To Do
 
 As a quiz master,  
 I want to provide a list of questions and answers in some sort of file format  

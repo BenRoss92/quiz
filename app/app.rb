@@ -37,7 +37,11 @@ class QuizApp < Sinatra::Base
   end
 
   error Exceptions::NoQuestionError do
-    env['sinatra.error'].message
+    redirect to("/end")
+  end
+
+  get '/end' do
+    erb :'end'
   end
 
   run! if app_file == $0
