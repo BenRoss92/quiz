@@ -1,26 +1,25 @@
 # Understands a list of question data
 
+require "csv"
+
 class QuestionData
 
   attr_reader :questions
 
-  def initialize
-    @questions = [
-      {
-      time_limit: 10,
-      text: "Who was the legendary Benedictine monk who invented champagne?",
-      correct_answer: "Dom Perignon",
-      option_2: "Ansgar",
-      option_3: "Willibrord"
-      },
-      {
-        time_limit: 12,
-        text: "Name the largest freshwater lake in the world?",
-        correct_answer: "Lake Superior",
-        option_2: "Lake Victoria",
-        option_3: "Lake Huron"
+  def initialize(file = './app/lib/question_list.csv')
+    @questions = []
+    load_questions(file)
+  end
+
+  def load_questions(file)
+    CSV.foreach(file) do |row|
+      time_limit, text, correct_answer, option_2, option_3 = row[0],
+       row[1], row[2], row[3], row[4]
+      @questions << {
+        time_limit: time_limit, text: text,
+        correct_answer: correct_answer, option_2: option_2, option_3: option_3
       }
-    ]
+    end
   end
 
 end

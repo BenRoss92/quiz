@@ -15,8 +15,6 @@
 
 ## User stories
 
-### Done
-
 As a player,  
 I want only one question to be displayed at a time  
 so I can focus my attention.
@@ -58,3 +56,7 @@ to encourage the player not to give up.
 As a quiz master,  
 I want to provide a list of questions and answers in some sort of file format  
 so I can prepare these offline.
+
+- Rewrite Javascript with tests
+- Deploy
+- Styling
