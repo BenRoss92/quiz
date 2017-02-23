@@ -9,7 +9,7 @@ class QuestionList
 
   attr_reader :current_question, :current_number
 
-  def initialize(question_data = QuestionData.new, question_class = Question)
+  def initialize(question_data = QuestionData.load_questions, question_class = Question)
     @question_data = question_data
     @question_class = question_class
     @current_question = nil
