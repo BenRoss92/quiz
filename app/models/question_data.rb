@@ -10,8 +10,12 @@ class QuestionData
     @questions = questions
   end
 
-  def self.load_questions(file = './app/lib/question_list.csv')
-    questions = []
+  def self.load_questions(file = './app/lib/question_list.csv', questions = [])
+    self.parse_csv(file, questions)
+    self.new(questions)
+  end
+
+  def self.parse_csv(file, questions)
     CSV.foreach(file) do |row|
       time_limit, text, correct_answer, option_2, option_3 = row[0],
        row[1], row[2], row[3], row[4]
@@ -19,7 +23,6 @@ class QuestionData
         correct_answer: correct_answer, option_2: option_2, option_3: option_3
       }
     end
-    self.new(questions)
   end
 
 end
