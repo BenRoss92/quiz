@@ -9,8 +9,13 @@ describe("Timer", function() {
     timer.setTimer(startTime);
   });
 
-  it("returns the remaining time", function() {
-    expect(timer.getRemaining()).toEqual(10)
+  it("returns the remaining seconds", function() {
+    expect(timer.getRemaining()).toEqual(10);
+  });
+
+  it("reduces remaining seconds by one", function() {
+    timer.reduceTime();
+    expect(timer.getRemaining()).toEqual(9);
   });
 
 });
