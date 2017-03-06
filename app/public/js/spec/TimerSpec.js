@@ -19,10 +19,15 @@ describe("Timer", function() {
   });
 
   it("stops reducing seconds after 0", function() {
-    timer.setRemaining(1);
-    timer.reduceTime();
+    timer.setRemaining(0);
     expect(function(){ timer.reduceTime();}).toThrowError(
       "remaining time cannot be less than 0");
+  });
+
+  it("notifies user when timer is finished", function() {
+    timer.setRemaining(1);
+    timer.reduceTime();
+    expect(timer.isFinished()).toEqual("Time's up!");
   });
 
 });

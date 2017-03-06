@@ -19,3 +19,9 @@ Timer.prototype.reduceTime = function() {
   }
   this._remainingTime -= 1;
 };
+
+Timer.prototype.isFinished = function() {
+  if (this._remainingTime === 0) {
+    return "Time's up!";  
+  }
+};
