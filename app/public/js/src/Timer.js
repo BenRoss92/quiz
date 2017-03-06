@@ -2,17 +2,20 @@
 "use strict";
 
 function Timer() {
-  this._currentTime = null;
+  this._remainingTime = null;
 }
 
-Timer.prototype.setTimer = function(startTime) {
-  this._currentTime = startTime;
+Timer.prototype.setRemaining = function(startTime) {
+  this._remainingTime = startTime;
 };
 
 Timer.prototype.getRemaining = function() {
-  return this._currentTime;
+  return this._remainingTime;
 };
 
 Timer.prototype.reduceTime = function() {
-  this._currentTime -= 1;
+  if(this._remainingTime === 0)  {
+    throw new Error("remaining time cannot be less than 0");
+  }
+  this._remainingTime -= 1;
 };
