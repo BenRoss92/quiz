@@ -6,11 +6,11 @@ describe("Timer", function() {
   beforeEach(function() {
     timer = new Timer();
     startTime = 10;
+    timer.setTimer(startTime);
   });
 
-  it("should have a start time", function() {
-    timer.setTimer(startTime);
-    expect(timer._currentTime).toEqual(startTime);
+  it("returns the remaining time", function() {
+    expect(timer.getRemaining()).toEqual(10)
   });
 
 });

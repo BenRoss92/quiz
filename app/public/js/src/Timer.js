@@ -7,3 +7,7 @@ function Timer() {
 Timer.prototype.setTimer = function(startTime) {
   this._currentTime = startTime;
 };
+
+Timer.prototype.getRemaining = function() {
+  return this._currentTime;
+};
