@@ -42,6 +42,13 @@ describe QuestionData do
       expect(question_data_class).to receive(:parse_csv).with(file, questions)
       question_data_class.load_questions(file, questions)
     end
+
+    it "creates an instance with CSV data" do
+      allow(question_data_class).to receive(:load_questions).with(file, questions)
+      allow(question_data_class).to receive(:new).with(data).and_return(question_data_instance)
+      expect(question_data_class).to receive(:load_questions).with(file, questions).and_return(question_data_instance)
+      question_data_class.load_questions(file, questions)
+    end
   end
 
   describe '.new' do
