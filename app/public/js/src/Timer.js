@@ -1,13 +1,9 @@
 /*jslint node: true */
 "use strict";
 
-function Timer() {
-  this._remainingTime = null;
-}
-
-Timer.prototype.setRemaining = function(startTime) {
+function Timer(startTime) {
   this._remainingTime = startTime;
-};
+}
 
 Timer.prototype.getRemaining = function() {
   return this._remainingTime;
@@ -22,6 +18,6 @@ Timer.prototype.reduceTime = function() {
 
 Timer.prototype.isFinished = function() {
   if (this._remainingTime === 0) {
-    return "Time's up!";  
+    return "Time's up!";
   }
 };
