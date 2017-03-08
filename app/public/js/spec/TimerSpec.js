@@ -2,12 +2,18 @@ describe("Timer", function() {
 
   var timer;
   var startTime;
+  var count;
 
   describe("Timer is set to 10", function() {
 
     beforeEach(function() {
       startTime = 10;
       timer = new Timer(startTime);
+      jasmine.clock().install();
+    });
+
+    afterEach(function() {
+      jasmine.clock().uninstall();
     });
 
     it("returns the remaining seconds", function() {
@@ -17,6 +23,12 @@ describe("Timer", function() {
     it("reduces remaining seconds by one", function() {
       timer.reduceTime();
       expect(timer.getRemaining()).toEqual(startTime - 1);
+    });
+
+    it("counts down after one second", function() {
+      timer.count();
+      jasmine.clock().tick(1000);
+      expect(timer.getRemaining()).toEqual(9);
     });
 
   });
