@@ -10,10 +10,6 @@ describe("Timer", function() {
       timer = new Timer(startTime);
     });
 
-    afterEach(function() {
-      jasmine.clock().uninstall();
-    });
-
     it("returns the remaining seconds", function() {
       expect(timer.getRemaining()).toEqual(startTime);
     });

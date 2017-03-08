@@ -21,3 +21,11 @@ Timer.prototype.isFinished = function() {
     return "Time's up!";
   }
 };
+
+Timer.prototype.count = function() {
+  var self = this;
+    setInterval(function() {
+      self.reduceTime();
+      self.getRemaining();
+    }, 1000);
+};
