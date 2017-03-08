@@ -10,22 +10,17 @@ Timer.prototype.getRemaining = function() {
 };
 
 Timer.prototype.reduceTime = function() {
-  if(this._remainingTime === 0)  {
+  if(this._remainingTime <= 0)  {
     throw new Error("remaining time cannot be less than 0");
   }
-  this._remainingTime -= 1;
-};
-
-Timer.prototype.isFinished = function() {
-  if (this._remainingTime === 0) {
-    return "Time's up!";
-  }
+  return (this._remainingTime -= 1);
 };
 
 Timer.prototype.count = function() {
+  console.log(this.getRemaining());
   var self = this;
-    setInterval(function() {
-      self.reduceTime();
-      self.getRemaining();
-    }, 1000);
+  var interval = setInterval(function() {
+    if (self.getRemaining() <= 0) {clearInterval(interval);}
+    console.log(self.reduceTime());
+  }, 1000);
 };

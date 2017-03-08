@@ -5,3 +5,5 @@ app/public/.DS_Store
 app/public/js/.DS_Store
 app/public/js/MIT.LICENSE
 spec/.DS_Store
+app/public/js/timer.js
+app/public/js/interface.js
