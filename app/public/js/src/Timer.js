@@ -17,10 +17,10 @@ Timer.prototype.reduceTime = function() {
 };
 
 Timer.prototype.count = function() {
-  console.log(this.getRemaining());
+  this.getRemaining();
   var self = this;
   var interval = setInterval(function() {
-    if (self.getRemaining() <= 0) {clearInterval(interval);}
-    console.log(self.reduceTime());
+    if (self.getRemaining() <= 1) {clearInterval(interval);}
+    self.reduceTime();
   }, 1000);
 };

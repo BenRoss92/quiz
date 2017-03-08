@@ -30,23 +30,9 @@ describe("Timer", function() {
       expect(timer.getRemaining()).toEqual(9);
     });
 
-  });
-
-  describe("When timer is set to 0", function() {
-
-    beforeEach(function() {
-      startTime = 0;
-      timer = new Timer(startTime);
-      jasmine.clock().install();
-    });
-
-    afterEach(function() {
-      jasmine.clock().uninstall();
-    });
-
-    it("stops counting down", function() {
+    it("stops counting down after reaching 0", function() {
       timer.count();
-      jasmine.clock().tick(2000);
+      jasmine.clock().tick(11000);
       expect(timer.getRemaining()).toEqual(0);
     });
 
@@ -59,7 +45,7 @@ describe("Timer", function() {
       timer = new Timer(startTime);
     });
 
-    it("stops reducing seconds after 0", function() {
+    it("throws error if timer goes below 0", function() {
       expect(function(){ timer.reduceTime();}).toThrowError(
         "remaining time cannot be less than 0");
     });
