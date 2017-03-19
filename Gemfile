@@ -6,5 +6,6 @@ gem "json"
 
 group :test do
   gem "rspec"
+  gem "poltergeist"
   gem "capybara"
 end
