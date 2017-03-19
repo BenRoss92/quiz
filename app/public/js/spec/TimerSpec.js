@@ -26,14 +26,14 @@ describe("Timer", function() {
 
     it("counts down after one second", function() {
       timer.count();
-      jasmine.clock().tick(1000);
-      expect(timer.getRemaining()).toEqual(9);
+      jasmine.clock().tick(2000);
+      expect(timer.getRemaining()).toEqual(startTime - 2);
     });
 
     it("stops counting down after reaching 0", function() {
       timer.count();
-      jasmine.clock().tick(11000);
-      expect(timer.getRemaining()).toEqual(0);
+      jasmine.clock().tick(12000);
+      expect(timer.getRemaining()).toEqual(startTime - startTime);
     });
 
   });
