@@ -19,10 +19,13 @@ feature 'viewing a question' do
 
   scenario 'a user sees only one question at a time' do
     allow(question_list).to receive(:questions).and_return(data)
-    
+
     visit('/')
     click_link('Start')
     expect(page).to have_current_path('/questions/1')
+    within '#timer' do
+      expect(page).to have_content(10)
+    end
     expect(page).to have_content(
     "1. Who was the legendary Benedictine monk who invented champagne?"
     )
