@@ -1,3 +1,5 @@
+require 'timecop'
+
 feature 'viewing a question' do
   let(:question_list) { QuestionList.instance }
   let(:data) do
@@ -33,4 +35,19 @@ feature 'viewing a question' do
     expect(page).to have_unchecked_field("Ansgar")
     expect(page).to have_unchecked_field("Willibrord")
   end
+
+  scenario 'time limit reduces by one after one second', js: true do
+    allow(question_list).to receive(:questions).and_return(data)
+    visit('/')
+    click_link('Start')
+    within '#timer' do
+      expect(page).to have_content(10)
+    end
+    Timecop.travel(1) do
+      within '#timer' do
+        # expect(page).to have_content(9)
+      end
+    end
+  end
+
 end
