@@ -9,11 +9,6 @@ describe("Timer", function() {
     beforeEach(function() {
       startTime = 10;
       timer = new Timer(startTime);
-      jasmine.clock().install();
-    });
-
-    afterEach(function() {
-      jasmine.clock().uninstall();
     });
 
     it("returns the remaining seconds", function() {
@@ -21,31 +16,20 @@ describe("Timer", function() {
     });
 
     it("reduces remaining seconds by one", function() {
-      expect(timer.reduceTime()).toEqual(startTime - 1);
-    });
-
-    it("counts down after one second", function() {
-      timer.count();
-      jasmine.clock().tick(2000);
-      expect(timer.getRemaining()).toEqual(startTime - 2);
-    });
-
-    it("stops counting down after reaching 0", function() {
-      timer.count();
-      jasmine.clock().tick(12000);
-      expect(timer.getRemaining()).toEqual(startTime - startTime);
+      timer.reduceTime();
+      expect(timer.getRemaining()).toEqual(startTime - 1);
     });
 
   });
 
-  describe("When timer is hardcoded to less than 0", function() {
+  describe("When starting time is hardcoded as 0", function() {
 
     beforeEach(function() {
-      startTime = -1;
+      startTime = 0;
       timer = new Timer(startTime);
     });
 
-    it("throws error if timer goes below 0", function() {
+    it("throws error if time remaining goes below 0", function() {
       expect(function(){ timer.reduceTime();}).toThrowError(
         "remaining time cannot be less than 0");
     });

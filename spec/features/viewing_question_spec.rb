@@ -43,9 +43,9 @@ feature 'viewing a question' do
     within '#timer' do
       expect(page).to have_content(10)
     end
-    Timecop.travel(1) do
+    Timecop.travel(2) do
       within '#timer' do
-        # expect(page).to have_content(9)
+        expect(page).to have_content(8)
       end
     end
   end

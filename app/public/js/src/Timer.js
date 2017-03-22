@@ -13,14 +13,5 @@ Timer.prototype.reduceTime = function() {
   if(this._remainingTime <= 0)  {
     throw new Error("remaining time cannot be less than 0");
   }
-  return (this._remainingTime -= 1);
-};
-
-Timer.prototype.count = function() {
-  var self = this;
-  var interval = setInterval(function() {
-    if (self.getRemaining() <= 1) {clearInterval(interval);}
-    self.reduceTime();
-    return self.getRemaining();
-  }, 1000);
+  this._remainingTime -= 1;
 };

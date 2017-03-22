@@ -1,12 +1,16 @@
-$(document).ready(function() {
+window.onload = function() {
 
-  var startTime = document.getElementById("timer").innerHTML;
+  var startTime = document.getElementById('timer').innerHTML;
   var timer = new Timer(startTime);
 
   function updateTime() {
-    $('#timer').text(timer.getRemaining());
+    document.getElementById('timer').innerHTML = timer.getRemaining();
   }
 
-  updateTime();
+  var count = setInterval(function() {
+    if (timer.getRemaining() <= 1) {clearInterval(count);}
+    timer.reduceTime();
+    updateTime();
+  }, 1000);
 
-});
+};
