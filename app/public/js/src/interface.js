@@ -7,10 +7,20 @@ window.onload = function() {
     document.getElementById('timer').innerHTML = timer.getRemaining();
   }
 
-  var count = setInterval(function() {
-    if (timer.getRemaining() <= 1) {clearInterval(count);}
+  var count = setInterval(function(){
+    startTimer();
+    if (timer.getRemaining() <= 0) {
+      stopTimer();
+    }
+  }, 1000);
+
+  function stopTimer() {
+    clearInterval(count);
+  }
+
+  function startTimer() {
     timer.reduceTime();
     updateTime();
-  }, 1000);
+  }
 
 };
