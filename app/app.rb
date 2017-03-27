@@ -27,9 +27,7 @@ class QuizApp < Sinatra::Base
     content_type :json
     @question_list.select_question(session[:number])
     question = @question_list.current_question
-    { time_limit: question.time_limit, text: question.text,
-      correct_answer: question.correct_answer, option_2: question.option_2,
-      option_3: question.option_3 }.to_json
+    question.as_hash.to_json
   end
 
   post '/questions/next' do
