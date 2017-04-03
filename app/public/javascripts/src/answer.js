@@ -3,5 +3,9 @@
 
 function Answer(submission, questionObject) {
   this.submission = submission;
-  this.correctAnswer = questionObject.correct_answer;
+  this._correctAnswer = questionObject.correct_answer;
 }
+
+Answer.prototype.validate = function () {
+  return (this.submission === this._correctAnswer) ? true : false;
+};
