@@ -24,9 +24,9 @@ class QuizApp < Sinatra::Base
     erb :'questions'
   end
 
-  get '/api/question' do
+  get '/api/questions/:number' do
     content_type :json
-    @question_list.select_question(session[:number])
+    @question_list.select_question(params[:number].to_i)
     question = @question_list.current_question
     question.as_hash.to_json
   end
