@@ -19,13 +19,23 @@ describe("Answer", function() {
   });
 
   describe("#validate", function() {
-    it("correct submission validates as true", function() {
-      expect(answer.validate(correctSubmission)).toEqual(true);
+
+    describe("when given a correct submission", function() {
+
+      it("returns true", function() {
+        expect(answer.validate(correctSubmission)).toEqual(true);
+      });
+
     });
 
-    it("incorrect submission validates as false", function() {
-      expect(answer.validate(incorrectSubmission)).toEqual(false);
+    describe("when given an incorrect submission", function() {
+
+      it("returns false", function() {
+        expect(answer.validate(incorrectSubmission)).toEqual(false);
+      });
+
     });
+
   });
 
 });
