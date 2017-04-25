@@ -1,24 +1,24 @@
 # Quiz
 
-## Instructions
+## Running app locally
 
-1. Clone the repo on your local machine:  
-`$ git clone git@github.com:BenRoss92/quiz.git`
-
+1. Clone the repo and change into the directory:  
+`$ git clone git@github.com:BenRoss92/quiz.git && cd quiz`
 2. Install Bundler: `$ gem install bundler`
+3. Install gems: `$ bundle`
+4. *Optional: Add your own time limits, questions and options inside this spreadsheet - `/app/lib/question_list.csv`*
+4. Run the app - run `$ rackup` and visit http://localhost:9292/ in a browser
 
-3. Run Bundle: `$ bundle`
+## Currently working on
 
-- _Optional: Add your own time limits, questions and options inside `/app/lib/question_list.csv`_
-
-4. Run the app - `$ rackup`
-
-5. Open a browser and enter URL `localhost:9292/`
+- Rewriting Javascript using OOP with unit and feature tests
+- Rewriting AJAX to use internal API
 
 ## User stories
 
 ### Done
 
+```
 As a player,  
 I want only one question to be displayed at a time  
 so I can focus my attention.
@@ -34,9 +34,11 @@ so I can prepare these offline.
 As a quiz master,  
 I want the ability to assign a different time limit to each question
 so the player is kept on their toes.
+```
 
 ### To Do
 
+```
 As a player,  
 I want to see a timer displayed with each question  
 so I can enjoy a heightened sense of tension.
@@ -60,9 +62,9 @@ to encourage guessing.
 As a quiz master,  
 I want to prevent the player from moving to the next question until they have   submitted an answer or the time has run out  
 to encourage the player not to give up.
+```
 
-- Rewrite Javascript in OO fashion with unit and feature tests
-- Rewrite AJAX by adding an internal API
+## Other To-do's
+
 - Incorporate headers into CSV file
-- Deploy
-- Styling
+- Add styling
