@@ -7,11 +7,12 @@
 2. Install Bundler: `$ gem install bundler`
 3. Install gems: `$ bundle`
 4. *Optional: Add your own time limits, questions and options inside this spreadsheet - `/app/lib/question_list.csv`*
-4. Run the app - run `$ rackup` and visit http://localhost:9292/ in a browser
+5. Run tests - To run back-end Ruby unit and feature tests, run `$ rspec`. To run front-end JavaScript unit tests, open the SpecRunner - `$ open spec/javascripts/SpecRunner.html`
+6. Run the app - run `$ rackup` and visit http://localhost:9292/ in a browser
 
 ## Currently working on
 
-- Rewriting Javascript using OOP with unit and feature tests
+- Rewriting JavaScript using OOP with unit and feature tests
 - Rewriting AJAX to use internal API
 
 ## User stories
@@ -66,5 +67,6 @@ to encourage the player not to give up.
 
 ## Other To-do's
 
+- Integration testing of API using Rack::Test
 - Incorporate headers into CSV file
 - Add styling
