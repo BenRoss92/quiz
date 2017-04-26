@@ -29,11 +29,8 @@ window.onload = function() {
   }
 
   function printVerdict(submission) {
-    var verdict;
     var result = answer.validate(submission);
-    if (result === true) {
-      verdict = "Correct";
-    }
+    var verdict = (result === true) ? ("Correct") : ("Incorrect");
     document.getElementById('verdict').innerHTML = verdict;
   }
 
