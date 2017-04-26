@@ -9,9 +9,9 @@ Api.prototype.getQuestionData = function(url) {
 
   var http = new XMLHttpRequest();
   var that = this;
-  http.onreadystatechange = function() {
+  http.onload = function() {
     if(http.readyState === 4 && http.status === 200) {
-      that.returnData(http.response);
+      that.returnData(JSON.parse(http.responseText));
     }
   };
 
