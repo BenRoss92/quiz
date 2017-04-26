@@ -15,8 +15,9 @@ window.onload = function() {
 
   document.querySelector('form').addEventListener('submit', function(e) {
     e.preventDefault();
-    getQuestionData('/api/questions/1', function(data) {
-      answer = new Answer(data);
+    var apiURL = '/api' + window.location.pathname;
+    getQuestionData(apiURL, function(questionData) {
+      answer = new Answer(questionData);
       submitAnswer();
     });
   });
