@@ -1,5 +1,44 @@
 window.onload = function() {
 
+  // ===  Answer functions ===
+
+  function getQuestionData(url, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", url, true);
+    xhr.onload = function() {
+      if(xhr.readyState === 4 && xhr.status === 200) {
+        callback(JSON.parse(xhr.responseText));
+      }
+    };
+    xhr.send(null);
+  }
+
+  document.querySelector('form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    getQuestionData('/api/questions/1', function(data) {
+      answer = new Answer(data);
+      submitAnswer();
+    });
+  });
+
+  function submitAnswer() {
+    var submission = document.querySelector('input[name = "answer"]:checked').value;
+    if (submission !== null) {
+      printVerdict(submission);
+    }
+  }
+
+  function printVerdict(submission) {
+    var verdict;
+    var result = answer.validate(submission);
+    if (result === true) {
+      verdict = "Correct";
+    }
+    document.getElementById('verdict').innerHTML = verdict;
+  }
+
+  // === Timer functions ===
+
   var startTime = document.getElementById('timer').innerHTML;
   var timer = new Timer(startTime);
 
