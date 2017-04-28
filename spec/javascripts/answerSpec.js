@@ -38,4 +38,12 @@ describe("Answer", function() {
 
   });
 
+  describe("#printCorrection", function () {
+
+    it("prints the correct answer", function () {
+      expect(answer.printCorrection()).toEqual(correctSubmission);
+    });
+
+  });
+
 });
